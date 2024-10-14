@@ -12,14 +12,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #651b1b; /* Dark red color for the navbar */
-    padding: 10px 20px;
+    background-color: #651b1b; 
+    padding: 20px 50px;
   }
   
   .logo h1 {
     color: white;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 35px;
+    font-weight: 350;
+    font-family: 'Rubik Mono One', sans-serif;
   }
   
   .search-bar {
@@ -28,17 +29,17 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    max-width: 60%;
+    max-width: 40%;
   }
   
   .search-bar input {
     width: 100%;
     padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid #ccc;
     outline: none;
     font-size: 16px;
-    padding-right: 40px; /* Extra padding to make space for the search icon */
+    padding-right: 40px; 
   }
   
   .search-icon {
@@ -60,7 +61,7 @@
     padding: 10px 20px;
     border: none;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
   }
   
