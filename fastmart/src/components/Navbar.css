@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #651b1b; /* Dark red color for the navbar */
+    padding: 10px 20px;
+  }
+  
+  .logo h1 {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .search-bar {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 60%;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 16px;
+    padding-right: 40px; /* Extra padding to make space for the search icon */
+  }
+  
+  .search-icon {
+    position: absolute;
+    right: 15px;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .nav-btn {
+    background-color: #651b1b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .sell-btn {
+    background-color: #290030;
+    padding: 10px 25px;
+    border-radius: 5px;
+  }
+  
+  .nav-btn:hover, .sell-btn:hover {
+    background-color: #500f0f;
+  }
+  
