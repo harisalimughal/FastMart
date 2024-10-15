@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <nav className="flex justify-between items-center bg-[#651b1b] py-5 px-12">
       <div className="logo">
-        <h1 className="text-white text-[35px] font-normal font-mono">FASTMART</h1>
+        <h1 className="text-white text-[35px] font-normal font-rubikMono">FASTMART</h1>
       </div>
       <div className="relative flex justify-center items-center max-w-2/5">
         <input
