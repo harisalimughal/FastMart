@@ -6,7 +6,7 @@ const Navbar = () => {
       <div className="logo">
         <h1 className="text-white text-[35px] font-normal font-rubikMono">FASTMART</h1>
       </div>
-      <div className="relative flex justify-center items-center max-w-2/5">
+      <div className="relative flex justify-center items-center w-full w-full sm:max-w-sm md:max-w-lg lg:max-w-3xl">
         <input
           type="text"
           placeholder="Search for anything"
