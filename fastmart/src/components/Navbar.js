@@ -15,9 +15,15 @@ const Navbar = () => {
         <i className="fa fa-search absolute right-3.5 text-gray-800 text-base cursor-pointer"></i>
       </div>
       <div className="flex space-x-4">
-        <button className="bg-[#651b1b] text-white py-2.5 px-5 font-bold text-lg hover:bg-[#500f0f]">SIGN UP</button>
-        <button className="bg-[#651b1b] text-white py-2.5 px-5 font-bold text-lg hover:bg-[#500f0f]">LOGIN</button>
-        <button className="bg-[#290030] text-white py-2.5 px-6 font-bold text-lg rounded hover:bg-[#500f0f]">SELL</button>
+        <button className="bg-[#651b1b] text-white py-2.5 px-5 font-bold text-lg transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg hover:translate-y-[-3px]">
+          SIGN UP
+        </button>
+        <button className="bg-[#651b1b] text-white py-2.5 px-5 font-bold text-lg transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg hover:translate-y-[-3px]">
+          LOGIN
+        </button>
+        <button className="bg-[#290030] text-white py-2.5 px-6 font-bold text-lg rounded transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg hover:translate-y-[-3px]">
+          SELL
+        </button>
       </div>
     </nav>
   );
