@@ -12,45 +12,45 @@ import sports from '../assets/categories/sports.png'
 
 function CategorySection() {
     return (
-        <div className='flex flex-col gap-8'>
+        <div className='flex flex-col gap-8 w-4/5 mx-auto'>
             {/* Header */}
-            <h1 className='text-3xl font-bold w-fit mx-auto'>
+            <h1 className='text-4xl font-bold w-fit mx-auto'>
                 Explore Popular Categories
             </h1>
 
             {/* Categories */}
-            <div className='flex gap-10 justify-center'>
+            <div className='flex justify-between'>
 
                 <button className='bg-gray-200 rounded-full p-5 border-2 hover:border-black transition duration-300'>
-                    <img src={animal} className='w-11' alt='animal'></img>
+                    <img src={animal} className='w-14' alt='animal'></img>
                 </button>
 
                 <button className='bg-gray-200 rounded-full p-5 border-2 hover:border-black transition duration-300'>
-                    <img src={book} className='w-11' alt='book'></img>
+                    <img src={book} className='w-14' alt='book'></img>
                 </button>
 
                 <button className='bg-gray-200 rounded-full p-5 border-2 hover:border-black transition duration-300'>
-                    <img src={car} className='w-11' alt='car'></img>
+                    <img src={car} className='w-14' alt='car'></img>
                 </button>
 
                 <button className='bg-gray-200 rounded-full p-5 border-2 hover:border-black transition duration-300'>
-                    <img src={clothing} className='w-11' alt='clothing'></img>
+                    <img src={clothing} className='w-14' alt='clothing'></img>
                 </button>
 
                 <button className='bg-gray-200 rounded-full p-5 border-2 hover:border-black transition duration-300'>
-                    <img src={electronics} className='w-11' alt='electronics'></img>
+                    <img src={electronics} className='w-14' alt='electronics'></img>
                 </button>
 
                 <button className='bg-gray-200 rounded-full p-5 border-2 hover:border-black transition duration-300'>
-                    <img src={gaming} className='w-11' alt='gaming'></img>
+                    <img src={gaming} className='w-14' alt='gaming'></img>
                 </button>
 
                 <button className='bg-gray-200 rounded-full p-5 border-2 hover:border-black transition duration-300'>
-                    <img src={sports} className='w-11' alt='sports'></img>
+                    <img src={sports} className='w-14' alt='sports'></img>
                 </button>
 
                 <button className='bg-gray-200 rounded-full p-5 border-2 hover:border-black transition duration-300'>
-                    <img src={others} className='w-11' alt='others'></img>
+                    <img src={others} className='w-14' alt='others'></img>
                 </button>
 
 
