@@ -7,6 +7,7 @@ function Ad({ ad_details }) {
             <img
                 src={ad_details.image}
                 className='rounded-t-xl'
+                alt={ad_details.title}
             >    
             </img>
 
