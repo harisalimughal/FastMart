@@ -6,14 +6,8 @@ const Navbar = () => {
   return (
     <nav className="bg-[#651b1b] py-5 px-6 md:px-12">
       <div className="flex justify-between items-center">
-        {/* Logo */}
-        <div className="logo">
-          <h1 className="text-white text-[28px] sm:text-[35px] font-normal font-rubikMono">
-            FASTMART
-          </h1>
-        </div>
-
-        {/* Hamburger Icon for Mobile */}
+        
+        {/* Left section: Hamburger Icon */}
         <div className="md:hidden">
           <button onClick={() => setIsOpen(!isOpen)}>
             <i className="fa fa-bars text-white text-2xl"></i>
@@ -28,6 +22,13 @@ const Navbar = () => {
             className="w-full py-2.5 px-3.5 pr-10 rounded-lg border border-gray-300 outline-none text-base"
           />
           <i className="fa fa-search absolute right-3.5 text-gray-800 text-base cursor-pointer"></i>
+        </div>
+
+        {/* Right section: Logo */}
+        <div className="logo">
+          <h1 className="text-white text-[28px] sm:text-[35px] font-normal font-rubikMono">
+            FASTMART
+          </h1>
         </div>
 
         {/* Buttons - Hidden on small screens, visible from md onwards */}
