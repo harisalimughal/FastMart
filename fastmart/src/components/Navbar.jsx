@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="bg-[#651b1b] py-5 px-6 md:px-12">
       {/* Navbar container */}
       <div className="flex flex-col md:flex-row justify-between items-center">
-        
+
         {/* Top section: Hamburger icon and logo */}
         <div className="flex justify-between items-center w-full md:w-auto">
           {/* Hamburger Icon for small devices  */}
@@ -38,17 +38,17 @@ const Navbar = () => {
         </div>
 
         {/* Buttons */}
-<div className="hidden md:flex space-x-4 md:flex-grow justify-end">
-  <button className="bg-[#651b1b] text-white py-2.5 px-5 font-bold text-lg whitespace-nowrap transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg hover:translate-y-[-3px]">
-    SIGN UP
-  </button>
-  <button className="bg-[#651b1b] text-white py-2.5 px-5 font-bold text-lg whitespace-nowrap transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg hover:translate-y-[-3px]">
-    LOGIN
-  </button>
-  <button className="bg-[#290030] text-white py-2.5 px-6 font-bold text-lg rounded whitespace-nowrap transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg hover:translate-y-[-3px]">
-    SELL
-  </button>
-</div>
+        <div className="hidden md:flex space-x-4 md:flex-grow justify-end">
+          <button className="bg-[#651b1b] text-white py-2.5 px-5 font-bold text-lg whitespace-nowrap transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg hover:translate-y-[-3px]">
+            SIGN UP
+          </button>
+          <button className="bg-[#651b1b] text-white py-2.5 px-5 font-bold text-lg whitespace-nowrap transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg hover:translate-y-[-3px]">
+            LOGIN
+          </button>
+          <button className="bg-[#290030] text-white py-2.5 px-6 font-bold text-lg rounded whitespace-nowrap transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg hover:translate-y-[-3px]">
+            SELL
+          </button>
+        </div>
 
       </div>
 
