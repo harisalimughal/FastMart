@@ -19,7 +19,7 @@ function CategorySection() {
             </h1>
 
             {/* Categories */}
-            <div className='flex justify-between gap-4 md:gap-0 overflow-x-auto'>
+            <div className='flex justify-between gap-4 md:gap-0 overflow-x-auto custom-scrollbar'>
 
                 <button className='bg-gray-200 rounded-full p-2 md:p-5 border-2 hover:border-black transition duration-300'>
                     <img src={animal} className='w-14 min-w-10 min-h-10' alt='animal'></img>
