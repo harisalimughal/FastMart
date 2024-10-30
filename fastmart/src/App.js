@@ -1,22 +1,19 @@
+// App.js
 import React from 'react';
-import { Routes, Route } from 'react-router-dom'; // Import Routes and Route
+import { Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import Signup from './components/SignUp';
 import Navbar from './components/NavBar';
-import CategorySection from './components/CategorySection';
-import RecentAdsSection from './components/RecentAdsSection';
+import Home from './components/Home';
 
 function App() {
   return (
-    <div className="App font-acad flex flex-col">
+    <div className="App font-acad ">
       <Navbar />
       <Routes>
-        <Route path="/" element={<CategorySection />} />
-        <Route path="/" element={<RecentAdsSection />} />
+        <Route path="/" element={<Home />} /> 
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/categories" element={<CategorySection />} />
-        
       </Routes>
     </div>
   );
