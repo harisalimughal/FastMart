@@ -7,7 +7,7 @@ const Navbar = () => {
 
   // Functions to navigate to Login and Signup pages
   const handleSignup = () => {
-    navigate('/signup'); // Navigate to the Signup page
+    navigate('/SignUp'); // Navigate to the Signup page
   };
 
   const handleLogin = () => {

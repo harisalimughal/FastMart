@@ -8,7 +8,7 @@ import RecentAdsSection from './components/RecentAdsSection';
 
 function App() {
   return (
-    <div className="App font-acad flex flex-col gap-16">
+    <div className="App font-acad flex flex-col">
       <Navbar />
       <Routes>
         <Route path="/" element={<CategorySection />} />

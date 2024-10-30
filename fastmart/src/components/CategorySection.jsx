@@ -12,7 +12,7 @@ import sports from '../assets/categories/sports.png'
 
 function CategorySection() {
     return (
-        <div className='flex flex-col gap-8 w-11/12 md:w-4/5 mx-auto'>
+        <div className='flex flex-col gap-8 w-11/12 md:w-4/5 mx-auto mt-16'>
             {/* Header */}
             <h1 className='text-2xl md:text-4xl font-bold w-fit mx-auto'>
                 Explore Popular Categories
