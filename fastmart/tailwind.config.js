@@ -6,8 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        acad: ['Afacad', 'sans-serif'],  // Afacad for global use
-        rubikMono: ['Rubik Mono One', 'sans-serif'],  // Rubik Mono One for logo
+        acad: ['Afacad', 'sans-serif'],  
+        rubikMono: ['Rubik Mono One', 'sans-serif'],  
       },
     },
   },
