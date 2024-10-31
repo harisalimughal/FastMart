@@ -1,7 +1,7 @@
 import React from 'react';
 import CategorySection from './CategorySection';
 import RecentAdsSection from './RecentAdsSection';
-import Navbar from '../NavBar';
+import Navbar from './NavBar';
 
 const Home = () => {
   return (

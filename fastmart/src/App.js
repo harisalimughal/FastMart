@@ -9,7 +9,7 @@ import PostAd from './components/selling-page/PostAd';
 function App() {
   return (
     <div className="App font-acad ">
-
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
