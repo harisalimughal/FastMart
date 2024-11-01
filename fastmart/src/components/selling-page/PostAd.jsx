@@ -2,12 +2,18 @@ import React from 'react'
 
 import Navbar from '../NavBar'
 import CategorySelect from './CategorySelect'
+import moneyEmoji from '../../assets/others/money-emoji.png'
 
 function PostAd() {
     return (
         <div className='flex flex-col gap-10'>
             {/* Navbar */}
             <Navbar />
+
+            {/* Money Emoji */}
+            <div className='w-48 mx-auto fixed right-44 top-36 -z-10 opacity-50'>
+                <img src={moneyEmoji} alt='money-emoji'></img>
+            </div>
 
             {/* Main Content */}
             <div className='flex flex-col gap-5'>
