@@ -1,16 +1,24 @@
 import React from 'react'
 
+import Navbar from './NavBar'
+
 function PostAd() {
     return (
-        <div className='py-10'>
-            {/* Header */}
-            <h1 className='w-fit mx-auto text-4xl font-bold'>
-                Post Your Ad
-            </h1>
+        <div className='flex flex-col gap-10'>
+            {/* Navbar */}
+            <Navbar />
 
-            {/* Form */}
+            {/* Main Content */}
             <div>
+                {/* Header */}
+                <h1 className='w-fit mx-auto text-4xl font-bold'>
+                    Post Your Ad
+                </h1>
 
+                {/* Form */}
+                <div>
+
+                </div>
             </div>
         </div>
     )
