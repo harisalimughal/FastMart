@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Navbar from '../NavBar'
 import CategorySelect from './CategorySelect'
 import moneyEmoji from '../../assets/others/money-emoji.png'
 
 function PostAd() {
+    const [category, setCategory] = useState('');
+
+    // function to handle form submission
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
+
+    // function to handle category change in CategorySelect component
+    const handleCategoryChange = (selectedCategory) => {
+        setCategory(selectedCategory);
+    }
+
     return (
         <div className='flex flex-col gap-10'>
             {/* Navbar */}
@@ -24,11 +36,11 @@ function PostAd() {
 
                 {/* Form */}
                 <div className='shadow-xl w-3/4 mx-auto p-10 rounded-2xl'>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         {/* Category */}
                         <div className='flex flex-col gap-4'>
-                            <label className='text-2xl font-bold' htmlFor='category'>Category</label>
-                            <CategorySelect id='category'/>
+                            <label className='text-2xl font-bold'>Category</label>
+                            <CategorySelect onCategoryChange={handleCategoryChange} />
                         </div>
                     </form>
                 </div>
