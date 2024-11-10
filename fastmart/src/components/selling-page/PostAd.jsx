@@ -8,6 +8,9 @@ import moneyEmoji from '../../assets/others/money-emoji.png'
 function PostAd() {
     const [category, setCategory] = useState('');
     const [condition, setCondition] = useState('');
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [price, setPrice] = useState(0);
 
     // function to handle form submission
     const handleSubmit = (e) => {
@@ -30,7 +33,7 @@ function PostAd() {
             <Navbar />
 
             {/* Money Emoji */}
-            <div className='w-48 mx-auto fixed right-44 top-36 -z-10 opacity-50'>
+            <div className='w-48 mx-auto absolute right-44 top-36 -z-10 opacity-50'>
                 <img src={moneyEmoji} alt='money-emoji'></img>
             </div>
 
@@ -57,6 +60,48 @@ function PostAd() {
                         <div className='flex flex-col gap-4'>
                             <label className='text-2xl font-bold'>Condition</label>
                             <ConditionSelect onConditionChange={handleConditionChange} />
+                        </div>
+
+                        {/* Title */}
+                        <div className='flex flex-col gap-4'>
+                            <label className='text-2xl font-bold'>Ad Title</label>
+                            <input
+                                type='text'
+                                className='border-2 border-black p-2 rounded-lg text-lg'
+                                placeholder='Describe your items in a few words (e.g. brand, model, type, age) ...'
+                                onInput={(e) => setTitle(e.target.value)}
+                                value={title}
+                            />
+                        </div>
+
+                        {/* Description */}
+                        <div className='flex flex-col gap-4'>
+                            <label className='text-2xl font-bold'>Description</label>
+                            <textarea
+                                className='border-2 border-black p-2 rounded-lg text-lg'
+                                placeholder='Include condition, features, and reason for selling ...'
+                                rows={5}
+                                onInput={(e) => setDescription(e.target.value)}
+                                value={description}
+                            />
+                        </div>
+
+                        {/* Price */}
+                        <div className='flex flex-col gap-4 text-lg'>
+                            <label className='text-2xl font-bold'>Price</label>
+                            <div className='relative flex items-center'>
+                                <span className='absolute left-3'>Rs.</span>
+                                <input
+                                    type='number'
+                                    min={0}
+                                    step={1}
+                                    className='pl-10 pr-3 py-2 border-2 border-black rounded-lg text-lg'
+                                    placeholder='Enter your price ...'
+                                    onInput={(e) => {
+                                        setPrice(e.target.value);
+                                    }}
+                                />
+                            </div>
                         </div>
                     </form>
                 </div>
