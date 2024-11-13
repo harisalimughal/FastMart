@@ -1,14 +1,14 @@
 import React from 'react'
 
-// Import category images
-import animal from '../assets/categories/animal.png'
-import book from '../assets/categories/book.png'
-import car from '../assets/categories/car.png'
-import clothing from '../assets/categories/clothing.png'
-import electronics from '../assets/categories/electronics.png'
-import gaming from '../assets/categories/gaming.png'
-import others from '../assets/categories/others.png'
-import sports from '../assets/categories/sports.png'
+
+import animal from '../../assets/animal.png'
+import book from '../../assets/book.png'
+import car from '../../assets/car.png'
+import clothing from '../../assets/clothing.png'
+import electronics from '../../assets/electronics.png'
+import gaming from '../../assets/gaming.png'
+import others from '../../assets/others.png'
+import sports from '../../assets/sports.png'
 
 function CategorySection() {
     return (

@@ -1,9 +1,9 @@
 // App.js
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Login from './components/Login';
-import Signup from './components/SignUp';
-import Home from './components/Home';
+import Login from './components/user_auth/Login';
+import Signup from './components/user_auth/SignUp';
+import Home from './components/Home/Home';
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
-import loginBg from '../assets/categories/login-bg.jpg';
-import googleIcon from '../assets/categories/google-icon.png';
+import loginBg from '../../assets/login-bg.jpg';
+import googleIcon from '../../assets/google-icon.png';
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false);
