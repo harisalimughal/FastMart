@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Navbar from '../NavBar'
 import CategorySelect from './CategorySelect'
@@ -11,6 +11,7 @@ function PostAd() {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState(0);
+    const [campus, setCampus] = useState('');
 
     // function to handle form submission
     const handleSubmit = (e) => {
@@ -100,8 +101,25 @@ function PostAd() {
                                     onInput={(e) => {
                                         setPrice(e.target.value);
                                     }}
+                                    value={price}
                                 />
                             </div>
+                        </div>
+
+                        {/* Campus Location */}
+                        <div className='flex flex-col gap-4 text-lg'>
+                            <label className='text-2xl font-bold'>Campus Location</label>
+                            <select
+                                onChange={(e) => setCampus(e.target.value)}
+                                className='py-2 pl-3 pr-20 bg-white w-fit border-2 border-black rounded-lg'
+                            >
+                                <option value=''>Select Campus</option>
+                                <option value='Islamabad'>Islamabad</option>
+                                <option value='Karachi'>Karachi</option>
+                                <option value='Lahore'>Lahore</option>
+                                <option value='Peshawar'>Peshawar</option>
+                                <option value='Chiniot-Faislabad'>Chiniot-Faislabad</option>
+                            </select>
                         </div>
                     </form>
                 </div>
