@@ -12,6 +12,7 @@ function PostAd() {
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState(0);
     const [campus, setCampus] = useState('');
+    const [name, setName] = useState('');
 
     // function to handle form submission
     const handleSubmit = (e) => {
@@ -121,6 +122,41 @@ function PostAd() {
                                 <option value='Chiniot-Faislabad'>Chiniot-Faislabad</option>
                             </select>
                         </div>
+
+                        {/* Name */}
+                        <div className='flex flex-col gap-4 text-lg'>
+                            <label className='text-2xl font-bold'>Name</label>
+                            <input
+                                type='text'
+                                className='border-2 border-black p-2 pr-10 rounded-lg text-lg w-fit'
+                                placeholder='Enter your name ...'
+                                onInput={(e) => setName(e.target.value)}
+                                value={name}
+                            />
+                        </div>
+
+                        {/* Contact */}
+                        <div className='flex flex-col gap-4 text-lg'>
+                            <label className='text-2xl font-bold'>Contact</label>
+                            <div className='relative flex items-center'>
+                                <span className='absolute left-3'>
+                                    +92 |
+                                </span>
+                                <input
+                                    type='text'
+                                    className='border-2 border-black py-2 pl-14 rounded-lg text-lg w-fit'
+                                    placeholder='320-1234567'
+                                />
+                            </div>
+                        </div>
+
+                        {/* Post */}
+                        <button
+                            type='submit'
+                            className='flex justify-center items-center text-white bg-palletePurple font-bold text-2xl py-2 px-10 rounded-lg mx-auto hover:shadow-xl transition duration-300'
+                        >
+                            Post
+                        </button>
                     </form>
                 </div>
             </div>
