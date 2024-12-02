@@ -1,67 +1,71 @@
-import React, { useState } from 'react';
-import { Eye, EyeOff } from 'lucide-react';
-import loginBg from '../../assets/login-bg.jpg';
-import googleIcon from '../../assets/google-icon.png';
+import React, { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
+import loginBg from "../../assets/login-bg.jpg";
+import googleIcon from "../../assets/google-icon.png";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../../firebase/config";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-    const [showPassword, setShowPassword] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
-    const [formData, setFormData] = useState({
-      email: '',
-      password: ''
-    });
-  
-    const handleInputChange = (e) => {
-      const { name, value } = e.target;
-      setFormData(prevState => ({
-        ...prevState,
-        [name]: value
-      }));
-    };
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      // Handle login logic here
-      console.log('Sign Up  submitted:', formData);
-    };
+  const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
-      const handleGoogleSignUp = async () => {
-        try {
-          setLoading(true);
-          setError("");
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
-          const provider = new GoogleAuthProvider();
-          const result = await signInWithPopup(auth, provider);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle login logic here
+    console.log("Sign Up  submitted:", formData);
+  };
 
-          // Get user info
-          const user = result.user;
-          const userInfo = {
-            displayName: user.displayName,
-            email: user.email,
-            photoURL: user.photoURL,
-            uid: user.uid,
-          };
+  const handleGoogleSignUp = async () => {
+    try {
+      setLoading(true);
+      setError("");
 
-          console.log("User signed up:", userInfo);
-          // Here you can:
-          // 1. Store additional user info if needed
-          // 2. Redirect to another page
-          // 3. Update UI state
-        } catch (error) {
-          console.error("Error:", error);
-          setError(error.message);
-        } finally {
-          setLoading(false);
-        }
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+
+      // Get user info
+      const user = result.user;
+      const userInfo = {
+        displayName: user.displayName,
+        email: user.email,
+        photoURL: user.photoURL,
+        uid: user.uid,
       };
+
+      console.log("User signed up:", userInfo);
+      navigate("/");
+      // Here you can:
+      // 1. Store additional user info if needed
+      // 2. Redirect to another page
+      // 3. Update UI state
+    } catch (error) {
+      console.error("Error:", error);
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <div
       className="min-h-screen w-full bg-cover bg-center bg-no-repeat relative"
       style={{ backgroundImage: `url(${loginBg})` }}
     >
+      {error && <div className="text-red-500 mb-4">{error}</div>}
       {/* Main content */}
       <div className="relative min-h-screen flex items-center justify-center p-4">
         {/* Login Card with enhanced blur effect */}
