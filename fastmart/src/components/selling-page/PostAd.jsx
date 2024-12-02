@@ -4,6 +4,7 @@ import Navbar from '../NavBar'
 import CategorySelect from './CategorySelect'
 import ConditionSelect from './ConditionSelect'
 import moneyEmoji from '../../assets/others/money-emoji.png'
+import UploadAdImage from './UploadAdImage'
 
 function PostAd() {
     const [category, setCategory] = useState('');
@@ -56,6 +57,16 @@ function PostAd() {
                         <div className='flex flex-col gap-4'>
                             <label className='text-2xl font-bold'>Category</label>
                             <CategorySelect onCategoryChange={handleCategoryChange} />
+                        </div>
+
+                        {/* Upload Images */}
+                        <div className='flex flex-col gap-4'>
+                            <label className='text-2xl font-bold'>Upload Images</label>
+                            <div className='flex gap-10'>
+                                <UploadAdImage />
+                                <UploadAdImage />
+                                <UploadAdImage />
+                            </div>
                         </div>
 
                         {/* Condition */}
