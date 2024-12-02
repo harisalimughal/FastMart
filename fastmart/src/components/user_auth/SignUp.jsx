@@ -222,7 +222,7 @@ const SignUp = () => {
                 className="w-full rounded-lg border border-gray-400 bg-transparent p-3 text-white transition-colors hover:bg-white/10 flex items-center justify-center gap-2"
               >
                 <img src={googleIcon} alt="Google" className="w-5 h-5" />
-                {loading ? "Signing in..." : "Continue with Google"}
+                {loading ? "Signing up..." : "Continue with Google"}
               </button>
 
               <p className="text-center text-sm text-gray-300">

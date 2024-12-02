@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import loginBg from '../../assets/login-bg.jpg';
 import googleIcon from '../../assets/google-icon.png';
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "../../firebase/config";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState({
       email: '',
@@ -23,14 +29,42 @@ const Login = () => {
       // Handle login logic here
       console.log('Login submitted:', formData);
     };
+
+     const handleGoogleSignUp = async () => {
+       try {
+         setLoading(true);
+         setError("");
+
+         const provider = new GoogleAuthProvider();
+         const result = await signInWithPopup(auth, provider);
+
+         // Get user info
+         const user = result.user;
+         const userInfo = {
+           displayName: user.displayName,
+           email: user.email,
+           photoURL: user.photoURL,
+           uid: user.uid,
+         };
+
+         console.log("User signed up:", userInfo);
+         navigate("/");
+
+       } catch (error) {
+         console.error("Error:", error);
+         setError(error.message);
+       } finally {
+         setLoading(false);
+       }
+     };
   return (
-    <div 
-    className="min-h-screen w-full bg-cover bg-center bg-no-repeat relative"
+    <div
+      className="min-h-screen w-full bg-cover bg-center bg-no-repeat relative"
       style={{ backgroundImage: `url(${loginBg})` }}
     >
-       
- {/* Main content */}
- <div className="relative min-h-screen flex items-center justify-center p-4">
+      {error && <div className="text-red-500 mb-4">{error}</div>}
+      {/* Main content */}
+      <div className="relative min-h-screen flex items-center justify-center p-4">
         {/* Login Card with enhanced blur effect */}
         <div className="w-full max-w-md rounded-xl overflow-hidden">
           {/* Blur effect background */}
@@ -43,7 +77,10 @@ const Login = () => {
             {/* Login Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="email" className="block text-sm text-[18px] font-medium text-gray-200 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm text-[18px] font-medium text-gray-200 mb-2"
+                >
                   Email Address
                 </label>
                 <input
@@ -55,11 +92,13 @@ const Login = () => {
                   className="w-full border-b-2 border-b-gray-400 bg-transparent p-3 text-white placeholder-gray-400 focus:border-b-red-500 focus:ring-0 focus:outline-none "
                   required
                 />
-                
-            </div>
+              </div>
 
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-[18px] text-gray-200 mb-2">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-[18px] text-gray-200 mb-2"
+                >
                   Password
                 </label>
                 <div className="relative">
@@ -83,7 +122,10 @@ const Login = () => {
               </div>
 
               <div className="text-right">
-                <a href="#" className="text-sm text-gray-300 hover:text-red-400 transition-colors">
+                <a
+                  href="#"
+                  className="text-sm text-gray-300 hover:text-red-400 transition-colors"
+                >
                   Forgot Password?
                 </a>
               </div>
@@ -105,20 +147,21 @@ const Login = () => {
               </div>
 
               <button
+                onClick={handleGoogleSignUp}
+                disabled={loading}
                 type="button"
                 className="w-full rounded-lg border border-gray-400 bg-transparent p-3 text-white transition-colors hover:bg-white/10 flex items-center justify-center gap-2"
               >
-                <img
-                  src={googleIcon}
-                  alt="Google"
-                  className="w-5 h-5"
-                />
-                Continue with Google
+                <img src={googleIcon} alt="Google" className="w-5 h-5" />
+                {loading ? "Signing in..." : "Continue with Google"}
               </button>
 
               <p className="text-center text-sm text-gray-300">
-                Don't have an account?{' '}
-                <a href="#" className="text-red-400 hover:text-red-300 transition-colors">
+                Don't have an account?{" "}
+                <a
+                  href="#"
+                  className="text-red-400 hover:text-red-300 transition-colors"
+                >
                   Sign Up
                 </a>
               </p>
@@ -126,10 +169,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-
     </div>
-
-
   );
 };
 
