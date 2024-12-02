@@ -9,6 +9,10 @@ module.exports = {
         acad: ['Afacad', 'sans-serif'],  
         rubikMono: ['Rubik Mono One', 'sans-serif'],  
       },
+      colors: {
+        palletePurple: '#290030',
+        palleteRed: '#651b1b',
+      },
     },
   },
   plugins: [
