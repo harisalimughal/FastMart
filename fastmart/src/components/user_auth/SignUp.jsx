@@ -3,37 +3,82 @@ import { Eye, EyeOff } from "lucide-react";
 import loginBg from "../../assets/login-bg.jpg";
 import googleIcon from "../../assets/google-icon.png";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth } from "../../firebase/config";
 import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { db, auth } from "../../firebase/config";
+// import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [formLoading, setformLoading] = useState(false);
+  const [googleBtnLoading, setGoogleBtnLoading] = useState(false);
   const [error, setError] = useState("");
   const [formData, setFormData] = useState({
+    fname: "",
+    lname: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    console.log(`Updating ${name}: ${value}`);
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log("Sign Up  submitted:", formData);
+    console.log("Form submitted", formData);
+    setformLoading(true);
+    setError("");
+
+    // Validate fields
+    if (!formData.fname || !formData.lname) {
+      setError("First and last name are required");
+      setformLoading(false);
+      return;
+    }
+
+    if (!formData.confirmPassword) {
+      setError("Please confirm your password");
+      setformLoading(false);
+      return;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match");
+      setformLoading(false);
+      return;
+    }
+
+    try {
+      console.log("Attempting to create user");
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      );
+      const user = userCredential.user;
+
+      console.log("User signed up successfully");
+      navigate("/");
+    } catch (error) {
+      setError(error.message);
+      console.error("Signup Error:", error);
+    } finally {
+      setformLoading(false);
+    }
   };
 
   const handleGoogleSignUp = async () => {
     try {
-
-      setLoading(true);
+      setGoogleBtnLoading(true);
       setError("");
 
       const provider = new GoogleAuthProvider();
@@ -58,7 +103,7 @@ const SignUp = () => {
       console.error("Error:", error);
       setError(error.message);
     } finally {
-      setLoading(false);
+      setGoogleBtnLoading(false);
     }
   };
   return (
@@ -173,9 +218,9 @@ const SignUp = () => {
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
-                    id="password"
-                    name="password"
-                    value={formData.password}
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    value={formData.confirmPassword}
                     onChange={handleInputChange}
                     className="w-full border-b-2 border-b-gray-400 bg-transparent p-3 text-white placeholder-gray-400 focus:border-b-red-500 focus:ring-0 focus:outline-none"
                     required
@@ -203,7 +248,7 @@ const SignUp = () => {
                 type="submit"
                 className="w-full rounded-lg bg-red-600 p-3 text-white font-bold text-[24px] transition-colors hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
               >
-                Create Account
+                {formLoading ? "Signing Up..." : "Create Account"}
               </button>
 
               <div className="relative">
@@ -217,12 +262,12 @@ const SignUp = () => {
 
               <button
                 onClick={handleGoogleSignUp}
-                disabled={loading}
+                disabled={googleBtnLoading}
                 type="button"
                 className="w-full rounded-lg border border-gray-400 bg-transparent p-3 text-white transition-colors hover:bg-white/10 flex items-center justify-center gap-2"
               >
                 <img src={googleIcon} alt="Google" className="w-5 h-5" />
-                {loading ? "Signing up..." : "Continue with Google"}
+                {googleBtnLoading ? "Signing up..." : "Continue with Google"}
               </button>
 
               <p className="text-center text-sm text-gray-300">
