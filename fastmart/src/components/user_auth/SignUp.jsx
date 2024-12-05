@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { db, auth } from "../../firebase/config";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -95,10 +95,7 @@ const SignUp = () => {
 
       console.log("User signed up:", userInfo);
       navigate("/");
-      // Here you can:
-      // 1. Store additional user info if needed
-      // 2. Redirect to another page
-      // 3. Update UI state
+    
     } catch (error) {
       console.error("Error:", error);
       setError(error.message);
@@ -272,12 +269,12 @@ const SignUp = () => {
 
               <p className="text-center text-sm text-gray-300">
                 Already have an account?{" "}
-                <a
-                  href="#"
+                <Link
+                  to="/login"
                   className="text-red-400 hover:text-red-300 transition-colors"
                 >
                   Login
-                </a>
+                </Link>
               </p>
             </form>
           </div>

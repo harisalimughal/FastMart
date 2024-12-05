@@ -4,7 +4,7 @@ import loginBg from '../../assets/login-bg.jpg';
 import googleIcon from '../../assets/google-icon.png';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../../firebase/config";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -158,12 +158,12 @@ const Login = () => {
 
               <p className="text-center text-sm text-gray-300">
                 Don't have an account?{" "}
-                <a
-                  href="#"
+                <Link
+                  to="/SignUp"
                   className="text-red-400 hover:text-red-300 transition-colors"
                 >
-                  Sign Up
-                </a>
+                  SignUp
+                </Link>
               </p>
             </form>
           </div>
