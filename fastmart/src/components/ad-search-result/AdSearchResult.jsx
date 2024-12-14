@@ -1,6 +1,8 @@
 import React from 'react'
 import Navbar from '../NavBar'
-import CategoryFilter from './CategoryFilter'
+import CategoryFilter from './filters/CategoryFilter'
+import ConditionFilter from './filters/ConditionFilter'
+import PriceFilter from './filters/PriceFilter'
 
 function AdSearchResult() {
   return (
@@ -12,6 +14,8 @@ function AdSearchResult() {
         {/* Filters Section */}
         <div className='flex flex-col'>
           <CategoryFilter />
+          <ConditionFilter />
+          <PriceFilter />
         </div>
 
         {/* Ads List Section */}
