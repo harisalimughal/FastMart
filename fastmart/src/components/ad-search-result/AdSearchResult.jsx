@@ -3,10 +3,11 @@ import Navbar from '../NavBar'
 import CategoryFilter from './filters/CategoryFilter'
 import ConditionFilter from './filters/ConditionFilter'
 import PriceFilter from './filters/PriceFilter'
+import LocationFilter from './filters/LocationFilter'
 
 function AdSearchResult() {
   return (
-    <div className='flex flex-col gap-10'>
+    <div className='flex flex-col gap-10 pb-10'>
       {/* Navbar */}
       <Navbar />
 
@@ -16,6 +17,7 @@ function AdSearchResult() {
           <CategoryFilter />
           <ConditionFilter />
           <PriceFilter />
+          <LocationFilter />
         </div>
 
         {/* Ads List Section */}
