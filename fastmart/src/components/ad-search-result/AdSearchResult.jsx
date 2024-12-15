@@ -8,11 +8,11 @@ import AdCard from './ad_card/AdCard'
 
 function AdSearchResult() {
   return (
-    <div className='flex flex-col gap-10 pb-10'>
+    <div className='flex flex-col gap-10 pb-10 w-full'>
       {/* Navbar */}
       <Navbar />
 
-      <div className='flex pl-12 gap-10'>
+      <div className='flex pl-12 gap-20 w-full'>
         {/* Filters Section */}
         <div className='flex flex-col'>
           <CategoryFilter />
@@ -22,15 +22,46 @@ function AdSearchResult() {
         </div>
 
         {/* Ads List Section */}
-        <div className='flex flex-col gap-10'>
+        <div className='flex flex-col gap-10 w-full pr-12'>
           <AdCard
             imgUrl={"https://upload.wikimedia.org/wikipedia/commons/a/a4/2019_Toyota_Corolla_Icon_Tech_VVT-i_Hybrid_1.8.jpg"}
+            title={"Honda Civic 12th Generation Model Bumper to bumper genuine"}
+            condition={"Used"}
+            price={"30,000"}
+            location={"Lahore"}
+            date={"2024-12-15T15:23:48Z"}
           />
           <AdCard
-            imgUrl={"https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg"}
+            imgUrl={"https://upload.wikimedia.org/wikipedia/commons/a/a4/2019_Toyota_Corolla_Icon_Tech_VVT-i_Hybrid_1.8.jpg"}
+            title={"Honda Civic 12th Generation Model Bumper to bumper genuine"}
+            condition={"Used"}
+            price={"30,000"}
+            location={"Lahore"}
+            date={"2024-12-15T00:00:00Z"}
           />
           <AdCard
-            imgUrl={"https://plus.unsplash.com/premium_photo-1694819488591-a43907d1c5cc?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y3V0ZSUyMGRvZ3xlbnwwfHwwfHx8MA%3D%3D"}
+            imgUrl={"https://upload.wikimedia.org/wikipedia/commons/a/a4/2019_Toyota_Corolla_Icon_Tech_VVT-i_Hybrid_1.8.jpg"}
+            title={"Honda Civic 12th Generation Model Bumper to bumper genuine"}
+            condition={"Used"}
+            price={"30,000"}
+            location={"Lahore"}
+            date={"2024-12-15T00:00:00Z"}
+          />
+          <AdCard
+            imgUrl={"https://upload.wikimedia.org/wikipedia/commons/a/a4/2019_Toyota_Corolla_Icon_Tech_VVT-i_Hybrid_1.8.jpg"}
+            title={"Honda Civic 12th Generation Model Bumper to bumper genuine"}
+            condition={"Used"}
+            price={"30,000"}
+            location={"Lahore"}
+            date={"2024-12-15T00:00:00Z"}
+          />
+          <AdCard
+            imgUrl={"https://upload.wikimedia.org/wikipedia/commons/a/a4/2019_Toyota_Corolla_Icon_Tech_VVT-i_Hybrid_1.8.jpg"}
+            title={"Honda Civic 12th Generation Model Bumper to bumper genuine"}
+            condition={"Used"}
+            price={"30,000"}
+            location={"Lahore"}
+            date={"2024-12-15T00:00:00Z"}
           />
         </div>
       </div>
