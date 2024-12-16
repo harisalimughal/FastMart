@@ -23,6 +23,26 @@ function AdSearchResult() {
 
         {/* Ads List Section */}
         <div className='flex flex-col gap-10 w-full pr-12'>
+          
+          {/* Sort By */}
+          <div className='flex items-center text-xl ml-auto'>
+            <h2 className='font-bold'>Sort By: </h2>
+            <select className='p-1 bg-transparent focus:outline-none'>
+              <option>
+                Most Recent
+              </option>
+              <option>
+                Most Relevant
+              </option>
+              <option>
+                Price: Low to High
+              </option>
+              <option>
+                Price: High to Low
+              </option>
+            </select>
+          </div>
+
           <AdCard
             imgUrl={"https://upload.wikimedia.org/wikipedia/commons/a/a4/2019_Toyota_Corolla_Icon_Tech_VVT-i_Hybrid_1.8.jpg"}
             title={"Honda Civic 12th Generation Model Bumper to bumper genuine"}
