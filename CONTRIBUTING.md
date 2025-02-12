@@ -28,8 +28,8 @@ Before working on a feature or fix, you must create an issue and wait for a repo
 
 Each issue should follow this format:
 
-#### Overview  
-A brief description of the problem or feature request.  
+#### Task  
+A brief description of the task or feature request.  
 
 #### Acceptance Criteria  
 - List the expected behaviors or changes.  
