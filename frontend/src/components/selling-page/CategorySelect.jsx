@@ -28,7 +28,7 @@ function CategorySelect({ onCategoryChange }) {
     };
 
     return (
-        <div className='flex justify-between gap-4 md:gap-0 overflow-x-auto custom-scrollbar w-4/5'>
+        <div className='flex justify-between gap-4 md:gap-0 overflow-x-auto custom-scrollbar md:w-4/5 w-full'>
             <button
                 onClick={() => handleCategoryClick('animal')}
                 className={getButtonClass('animal')}

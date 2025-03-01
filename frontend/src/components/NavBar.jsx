@@ -48,7 +48,10 @@ const Navbar = () => {
               placeholder="Search for anything"
               className="w-full py-2.5 px-3.5 pr-10 rounded-3xl md:rounded-lg border border-gray-300 outline-none text-base"
             />
-            <i className="fa fa-search absolute right-3.5 text-gray-800 top-1/2 transform -translate-y-1/2 text-base cursor-pointer"></i>
+            <i
+              onClick={() => navigate('/ad-search-result')} // Navigate to the Ads List
+              className="fa fa-search absolute right-3.5 text-gray-800 top-1/2 transform -translate-y-1/2 text-base cursor-pointer"
+            ></i>
           </div>
         </div>
 
