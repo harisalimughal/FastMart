@@ -9,12 +9,12 @@ const FormSelect = ({
     ...rest
 }) => {
     return (
-        <div className="flex flex-col gap-4">
-            <label className="text-lg font-bold">{label}</label>
+        <div className="flex flex-col gap-4 w-full">
+            <label className="md:text-2xl text-lg font-bold">{label}</label>
             <select
                 value={value}
                 onChange={onChange}
-                className="py-2 pl-3 pr-20 bg-white w-fit border-2 border-black rounded-lg"
+                className="py-2 pl-3 pr-20 bg-white border-2 border-black rounded-lg w-full"
                 {...rest}
             >
                 <option value="">{placeholder}</option>
