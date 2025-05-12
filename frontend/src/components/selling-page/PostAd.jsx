@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import Navbar from '../NavBar'
 import CategorySelect from './CategorySelect'
 import ConditionSelect from './ConditionSelect'
 import moneyEmoji from '../../assets/others/money-emoji.png'
 import UploadAdImage from './UploadAdImage'
+import FormInput from '../atoms/FormInput'
 
 function PostAd() {
     const [category, setCategory] = useState('');
@@ -197,47 +198,35 @@ function PostAd() {
               </div>
 
               {/* Title */}
-              <div className="flex flex-col gap-4">
-                <label className="text-lg font-bold">Ad Title</label>
-                <input
-                  type="text"
-                  className="border-2 border-black p-2 rounded-lg text-md"
-                  placeholder="Describe your items in a few words (e.g. brand, model, type, age) ..."
-                  onInput={(e) => setTitle(e.target.value)}
-                  value={title}
-                />
-              </div>
+              <FormInput
+                label="Ad Title"
+                type="text"
+                placeholder="Describe your items in a few words (e.g. brand, model, type, age) ..."
+                value={title}
+                onInput={(e) => setTitle(e.target.value)}
+              />
 
               {/* Description */}
-              <div className="flex flex-col gap-4">
-                <label className="text-lg font-bold">Description</label>
-                <textarea
-                  className="border-2 border-black p-2 rounded-lg text-md"
-                  placeholder="Include condition, features, and reason for selling ..."
-                  rows={5}
-                  onInput={(e) => setDescription(e.target.value)}
-                  value={description}
-                />
-              </div>
+              <FormInput
+                label="Description"
+                type="textarea"
+                placeholder="Include condition, features, and reason for selling ..."
+                value={description}
+                onInput={(e) => setDescription(e.target.value)}
+                rows={5}
+              />
 
               {/* Price */}
-              <div className="flex flex-col gap-4">
-                <label className="text-lg font-bold">Price</label>
-                <div className="relative flex items-center">
-                  <span className="absolute left-3">Rs.</span>
-                  <input
-                    type="number"
-                    min={0}
-                    step={1}
-                    className="pl-10 pr-3 py-2 border-2 border-black rounded-lg text-md"
-                    placeholder="Enter your price ..."
-                    onInput={(e) => {
-                      setPrice(e.target.value);
-                    }}
-                    value={price}
-                  />
-                </div>
-              </div>
+              <FormInput
+                label="Price"
+                type="number"
+                min={0}
+                step={1}
+                currency="Rs."
+                placeholder="Enter your price ..."
+                value={price}
+                onInput={(e) => setPrice(e.target.value)}
+              />
 
               {/* Campus Location */}
               <div className="flex flex-col gap-4">
