@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import Navbar from '../NavBar'
 import CategorySelect from './CategorySelect'
 import ConditionSelect from './ConditionSelect'
-import moneyEmoji from '../../assets/others/money-emoji.png'
 import UploadAdImage from './UploadAdImage'
 import FormInput from '../atoms/FormInput'
 import FormSelect from '../atoms/FormSelect'
@@ -37,11 +36,6 @@ function PostAd() {
     <div className="flex flex-col gap-10">
       {/* Navbar */}
       <Navbar />
-
-      {/* Money Emoji */}
-      <div className="w-28 md:w-48 mx-auto absolute md:right-[9vw] md:top-[12vh] right-0 top-[45vw] -z-10 opacity-50">
-        <img src={moneyEmoji} alt="money-emoji"></img>
-      </div>
 
       {/* Main Content - Desktop */}
       <div className="flex flex-col md:gap-5 gap-3">
