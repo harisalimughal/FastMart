@@ -8,13 +8,13 @@ import AdCard from './ad_card/AdCard'
 
 function AdSearchResult() {
   return (
-    <div className='flex flex-col gap-10 pb-10 w-full'>
+    <div className='flex flex-col md:gap-10 gap-4 pb-10 w-full'>
       {/* Navbar */}
       <Navbar />
 
-      <div className='flex pl-12 gap-20 w-full'>
+      <div className='flex md:pl-12 pl-5 gap-20 w-full'>
         {/* Filters Section */}
-        <div className='flex flex-col'>
+        <div className='md:flex flex-col hidden'>
           <CategoryFilter />
           <ConditionFilter />
           <PriceFilter />
@@ -22,24 +22,16 @@ function AdSearchResult() {
         </div>
 
         {/* Ads List Section */}
-        <div className='flex flex-col gap-10 w-full pr-12'>
-          
+        <div className='flex flex-col md:gap-10 gap-6 w-full md:pr-12 pr-5'>
+
           {/* Sort By */}
-          <div className='flex items-center text-xl ml-auto'>
+          <div className='flex items-center md:text-xl ml-auto'>
             <h2 className='font-bold'>Sort By: </h2>
-            <select className='p-1 bg-transparent focus:outline-none'>
-              <option>
-                Most Recent
-              </option>
-              <option>
-                Most Relevant
-              </option>
-              <option>
-                Price: Low to High
-              </option>
-              <option>
-                Price: High to Low
-              </option>
+            <select class="md:p-1 bg-transparent focus:outline-none md:w-fit w-[7rem]">
+              <option>Most Recent</option>
+              <option>Most Relevant</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
             </select>
           </div>
 
