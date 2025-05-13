@@ -5,15 +5,18 @@ import ConditionFilter from './filters/ConditionFilter'
 import PriceFilter from './filters/PriceFilter'
 import LocationFilter from './filters/LocationFilter'
 import AdCard from './ad_card/AdCard'
+import FiltersModal from './FiltersModal'
 
 function AdSearchResult() {
+  const [showFiltersModal, setShowFiltersModal] = React.useState(false)
+
   return (
     <div className='flex flex-col md:gap-10 gap-4 pb-10 w-full'>
       {/* Navbar */}
       <Navbar />
 
       <div className='flex md:pl-12 pl-5 gap-20 w-full'>
-        {/* Filters Section */}
+        {/* Filters Section - Desktop */}
         <div className='md:flex flex-col hidden'>
           <CategoryFilter />
           <ConditionFilter />
@@ -25,15 +28,27 @@ function AdSearchResult() {
         <div className='flex flex-col md:gap-10 gap-6 w-full md:pr-12 pr-5'>
 
           {/* Sort By */}
-          <div className='flex items-center md:text-xl ml-auto'>
-            <h2 className='font-bold'>Sort By: </h2>
-            <select class="md:p-1 bg-transparent focus:outline-none md:w-fit w-[7rem]">
-              <option>Most Recent</option>
-              <option>Most Relevant</option>
-              <option>Price: Low to High</option>
-              <option>Price: High to Low</option>
-            </select>
+          <div className='flex items-center md:text-xl justify-between'>
+            {/* Filters Button - Mobile */}
+            <button
+              className='text-palletePurple font-semibold block md:hidden'
+              onClick={() => { setShowFiltersModal(!showFiltersModal) }}
+            >
+              Filters
+            </button>
+
+            <div className='flex items-center md:ml-auto'>
+              <h2 className='font-bold'>Sort By: </h2>
+              <select class="md:p-1 bg-transparent focus:outline-none md:w-fit w-[7rem]">
+                <option>Most Recent</option>
+                <option>Most Relevant</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+              </select>
+            </div>
           </div>
+
+          {/* Ads List */}
 
           <AdCard
             imgUrl={"https://upload.wikimedia.org/wikipedia/commons/a/a4/2019_Toyota_Corolla_Icon_Tech_VVT-i_Hybrid_1.8.jpg"}
@@ -77,6 +92,11 @@ function AdSearchResult() {
           />
         </div>
       </div>
+
+      {/* Filters Modal - Mobile */}
+      {showFiltersModal && (
+        <FiltersModal setShowFiltersModal={setShowFiltersModal} />
+      )}
     </div>
   )
 }
