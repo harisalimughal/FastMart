@@ -1,122 +1,107 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Create a navigate function
 
+  // Functions to navigate to Login and Signup pages
   const handleSignup = () => {
-    navigate('/SignUp');
+    navigate('/SignUp'); // Navigate to the Signup page
   };
 
   const handleLogin = () => {
-    navigate('/login');
+    navigate('/login'); // Navigate to the Login page
   };
 
   const handleSell = () => {
-    navigate('/postad');
-  };
+    navigate('/postad'); // Navigate to the Sell page
+  }
 
   return (
-    <div className="relative">
-      {/* Animated Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#651b1b] via-[#500f0f] to-[#290030] animate-gradient-bg"></div>
+    <nav className="bg-[#651b1b] py-5 px-6 md:px-12">
+      {/* Navbar container */}
+      <div className="flex flex-col md:flex-row justify-between items-center">
 
-      {/* Navbar */}
-      <nav className="relative bg-transparent py-5 px-6 md:px-12 z-10">
-        <style>
-          {`
-            @keyframes gradientAnimation {
-              0% { background-position: 0% 50%; }
-              50% { background-position: 100% 50%; }
-              100% { background-position: 0% 50%; }
-            }
-            .animate-gradient-bg {
-              background-size: 200% 200%;
-              animation: gradientAnimation 8s ease infinite;
-            }
-          `}
-        </style>
-
-        {/* Navbar container */}
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          {/* Top section: Hamburger icon and logo */}
-          <div className="flex justify-between items-center w-full md:w-auto">
-            <div className="md:hidden">
-              <button onClick={() => setIsOpen(!isOpen)}>
-                <i className="fa fa-bars text-white text-xl"></i>
-              </button>
-            </div>
-            <div className="flex-grow text-right md:text-left">
-              <h1 className="text-white text-[20px] md:text-[36px] font-normal font-rubikMono">
-                FASTMART
-              </h1>
-            </div>
+        {/* Top section: Hamburger icon and logo */}
+        <div className="flex justify-between items-center w-full md:w-auto">
+          {/* Hamburger Icon for small devices  */}
+          <div className="md:hidden">
+            <button onClick={() => setIsOpen(!isOpen)}>
+              <i className="fa fa-bars text-white text-xl"></i>
+            </button>
           </div>
 
-          {/* Search Bar */}
-          <div className="mt-4 md:mt-0 w-full flex justify-center items-center">
-            <div className="flex relative w-full max-w-xl">
-              <input
-                type="text"
-                placeholder="Search for anything"
-                className="w-full py-2.5 px-3.5 pr-10 rounded-3xl md:rounded-lg border border-gray-300 outline-none text-base"
-              />
-              <i
-                onClick={() => navigate('/ad-search-result')}
-                className="fa fa-search absolute right-3.5 text-gray-800 top-1/2 transform -translate-y-1/2 text-base cursor-pointer"
-              ></i>
-            </div>
-          </div>
-
-          {/* Buttons */}
-          <div className="hidden md:flex space-x-4 md:flex-grow justify-end">
-            <button
-              onClick={handleSignup}
-              className="bg-[#651b1b] text-white py-2.5 px-5 font-bold text-lg whitespace-nowrap transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg hover:translate-y-[-3px]"
-            >
-              SIGN UP
-            </button>
-            <button
-              onClick={handleLogin}
-              className="bg-[#651b1b] text-white py-2.5 px-5 font-bold text-lg whitespace-nowrap transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg hover:translate-y-[-3px]"
-            >
-              LOGIN
-            </button>
-            <button
-              onClick={handleSell}
-              className="bg-[#290030] text-white py-2.5 px-6 font-bold text-lg rounded whitespace-nowrap transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg hover:translate-y-[-3px]"
-            >
-              SELL
-            </button>
+          {/* Logo */}
+          <div className="flex-grow text-right md:text-left">
+            <h1 className="text-white text-[20px] md:text-[36px] font-normal font-rubikMono">
+              FASTMART
+            </h1>
           </div>
         </div>
 
-        {/* Mobile Menu (Collapsible) */}
-        {isOpen && (
-          <div className="md:hidden mt-4 space-y-4">
-            <button
-              onClick={handleSignup}
-              className="w-full bg-[#651b1b] text-white py-2.5 px-5 font-bold text-lg transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg"
-            >
-              SIGN UP
-            </button>
-            <button
-              onClick={handleLogin}
-              className="w-full bg-[#651b1b] text-white py-2.5 px-5 font-bold text-lg transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg"
-            >
-              LOGIN
-            </button>
-            <button
-              onClick={handleSell}
-              className="w-full bg-[#290030] text-white py-2.5 px-6 font-bold text-lg rounded transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg"
-            >
-              SELL
-            </button>
+        {/* Search Bar */}
+        <div className="mt-4 md:mt-0 w-full flex justify-center items-center">
+          <div className="flex relative w-full max-w-xl">
+            <input
+              type="text"
+              placeholder="Search for anything"
+              className="w-full py-2.5 px-3.5 pr-10 rounded-3xl md:rounded-lg border border-gray-300 outline-none text-base"
+            />
+            <i
+              onClick={() => navigate('/ad-search-result')} // Navigate to the Ads List
+              className="fa fa-search absolute right-3.5 text-gray-800 top-1/2 transform -translate-y-1/2 text-base cursor-pointer"
+            ></i>
           </div>
-        )}
-      </nav>
-    </div>
+        </div>
+
+        {/* Buttons */}
+        <div className="hidden md:flex space-x-4 md:flex-grow justify-end">
+          <button 
+            onClick={handleSignup} // Handle Signup button click
+            className="bg-[#651b1b] text-white py-2.5 px-5 font-bold text-lg whitespace-nowrap transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg hover:translate-y-[-3px]"
+          >
+            SIGN UP
+          </button>
+          <button 
+            onClick={handleLogin} // Handle Login button click
+            className="bg-[#651b1b] text-white py-2.5 px-5 font-bold text-lg whitespace-nowrap transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg hover:translate-y-[-3px]"
+          >
+            LOGIN
+          </button>
+          <button
+            onClick={handleSell} // Handle Sell button click
+            className="bg-[#290030] text-white py-2.5 px-6 font-bold text-lg rounded whitespace-nowrap transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg hover:translate-y-[-3px]">
+            SELL
+          </button>
+        </div>
+
+      </div>
+
+      {/* Mobile Menu (Collapsible) */}
+      {isOpen && (
+        <div className="md:hidden mt-4 space-y-4">
+          {/* Sign up and login buttons for mobile */}
+          <button 
+            onClick={handleSignup} // Handle Signup button click
+            className="w-full bg-[#651b1b] text-white py-2.5 px-5 font-bold text-lg transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg"
+          >
+            SIGN UP
+          </button>
+          <button 
+            onClick={handleLogin} // Handle Login button click
+            className="w-full bg-[#651b1b] text-white py-2.5 px-5 font-bold text-lg transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg"
+          >
+            LOGIN
+          </button>
+          <button
+            onClick={handleSell} // Handle Sell button click
+            className="w-full bg-[#290030] text-white py-2.5 px-6 font-bold text-lg rounded transition-all duration-300 ease-in-out transform hover:bg-[#500f0f] hover:scale-105 hover:shadow-lg">
+            SELL
+          </button>
+        </div>
+      )}
+    </nav>
   );
 };
 
