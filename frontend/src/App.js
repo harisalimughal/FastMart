@@ -6,6 +6,7 @@ import Signup from './components/user_auth/SignUp';
 import Home from './components/Home/Home';
 import PostAd from "./components/selling-page/PostAd";
 import AdSearchResult from "./components/ad-search-result/AdSearchResult";
+import AdDetails from './components/ad-details/AdDetails';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path='/postad' element={<PostAd />} />
         <Route path='/ad-search-result' element={<AdSearchResult />} />
+        <Route path="/ad-details/:id" element={<AdDetails />} />
       </Routes>
     </div>
   );
