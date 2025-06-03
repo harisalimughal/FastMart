@@ -8,6 +8,8 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { db, auth } from "../../firebase/config";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Ensure this is imported for styling
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -46,13 +48,29 @@ const SignUp = () => {
     }
 
     if (!formData.confirmPassword) {
-      setError("Please confirm your password");
+      toast.error("Please confirm your password", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       setformLoading(false);
       return;
     }
 
     if (formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match");
+      toast.error("Passwords do not match", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       setformLoading(false);
       return;
     }
@@ -84,7 +102,6 @@ const SignUp = () => {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
 
-      // Get user info
       const user = result.user;
       const userInfo = {
         displayName: user.displayName,
@@ -95,7 +112,6 @@ const SignUp = () => {
 
       console.log("User signed up:", userInfo);
       navigate("/");
-    
     } catch (error) {
       console.error("Error:", error);
       setError(error.message);
@@ -103,24 +119,20 @@ const SignUp = () => {
       setGoogleBtnLoading(false);
     }
   };
+
   return (
     <div
       className="min-h-screen w-full bg-cover bg-center bg-no-repeat relative"
       style={{ backgroundImage: `url(${loginBg})` }}
     >
-      {error && <div className="text-red-500 mb-4">{error}</div>}
-      {/* Main content */}
+      {error && <div className="text-red-500 absolute">{error}</div>}
       <div className="relative min-h-screen flex items-center justify-center p-4">
-        {/* Login Card with enhanced blur effect */}
         <div className="w-full max-w-md rounded-xl overflow-hidden">
-          {/* Blur effect background */}
           <div className="backdrop-blur-xl bg-white/10 p-8 shadow-2xl border border-white/20">
-            {/* LoGIN */}
             <div className="mb-8 text-center">
               <h1 className="text-[40px] font-bold text-white">SIGN UP</h1>
             </div>
 
-            {/* SignUp Form */}
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
@@ -135,7 +147,7 @@ const SignUp = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full border-b-2 border-b-gray-400 bg-transparent p-3 text-white placeholder-gray-400 focus:border-b-red-500 focus:ring-0 focus:outline-none "
+                  className="w-full border-b-2 border-b-gray-400 bg-transparent p-3 text-white placeholder-gray-400 focus:border-b-red-500 focus:ring-0 focus:outline-none"
                   required
                 />
               </div>
@@ -207,7 +219,7 @@ const SignUp = () => {
 
               <div>
                 <label
-                  htmlFor="password"
+                  htmlFor="confirmPassword"
                   className="block text-sm font-medium text-[18px] text-gray-200 mb-2"
                 >
                   Confirm Password
@@ -280,6 +292,7 @@ const SignUp = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
