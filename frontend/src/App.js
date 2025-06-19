@@ -8,6 +8,9 @@ import PostAd from "./components/selling-page/PostAd";
 import AdSearchResult from "./components/ad-search-result/AdSearchResult";
 import AdDetails from './components/ad-details/AdDetails';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
   return (
     <div className="App font-acad ">
@@ -20,6 +23,8 @@ function App() {
         <Route path='/ad-search-result' element={<AdSearchResult />} />
         <Route path="/ad-details/:id" element={<AdDetails />} />
       </Routes>
+
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 }

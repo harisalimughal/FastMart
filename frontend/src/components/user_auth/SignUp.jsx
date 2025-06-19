@@ -3,6 +3,10 @@ import { Eye, EyeOff } from "lucide-react";
 import { Link } from "react-router-dom";
 import loginBg from "../../assets/login-bg.jpg";
 import googleIcon from "../../assets/google-icon.png";
+import { checkValidationsRegister } from "./authUtil";
+import { registerUser } from "./authApi";
+
+import { toast } from "react-toastify";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -13,6 +17,43 @@ const SignUp = () => {
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    const { valid, message } = checkValidationsRegister({
+      firstName,
+      lastName,
+      email,
+      password,
+      confirmPassword,
+    });
+
+    if (!valid) {
+      toast.error(message);
+      console.error("Validation error:", message);
+      return;
+    }
+
+    registerUser({
+      firstName,
+      lastName,
+      email,
+      password,
+    })
+      .then((response) => {
+        if (response.success) {
+          toast.success("Registration successful! Please log in.");
+          // Redirect to login page or perform any other action
+        } else {
+          toast.error(response.message || "Registration failed. Please try again.");
+        }
+      })
+      .catch((error) => {
+        console.error("Registration error:", error);
+        toast.error("An error occurred during registration. Please try again.");
+      });
+  };
 
   return (
     <div
@@ -26,7 +67,7 @@ const SignUp = () => {
               <h1 className="text-[40px] font-bold text-white">SIGN UP</h1>
             </div>
 
-            <form className="space-y-6">
+            <form onSubmit={handleRegister} className="space-y-6">
               <div>
                 <label
                   htmlFor="email"
